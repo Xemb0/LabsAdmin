@@ -1,5 +1,7 @@
 package com.bloodlabs.admin.ui
 
+import androidx.compose.foundation.layout.Box
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -9,9 +11,9 @@ import androidx.navigation.compose.rememberNavController
 fun HomeScreen() {
     val homeNavController = rememberNavController()
     NavHost(homeNavController, startDestination = "home1") {
-        for(i in 1..10) {
-            composable("home$i") {
-
+            composable("home1") {
+        Box {
+                Text("Home Screen")
             }
         }
     }
