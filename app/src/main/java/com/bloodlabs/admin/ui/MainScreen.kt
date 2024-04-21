@@ -18,7 +18,6 @@ import com.bloodlabs.admin.theme.BloodlabsThemeComposable
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun MainScreen(){
-
 BloodlabsThemeComposable {
     val rootNavController = rememberNavController()
     val navBackStackEntry by rootNavController.currentBackStackEntryAsState()
