@@ -45,56 +45,7 @@ class ActivityMain: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MaterialTheme {
-                val rootNavController = rememberNavController()
-                val navBackStackEntry by rootNavController.currentBackStackEntryAsState()
 
-                Scaffold(
-                    bottomBar = {
-                        NavigationBar {
-                            items.forEach {
-                                val isSelected = it.title.lowercase() ==
-                                        navBackStackEntry?.destination?.route?.lowercase()
-                                NavigationBarItem(
-                                    selected = isSelected,
-                                    label = {
-                                        Text(text = it.title)
-                                    },
-                                    icon = {
-                                        Icon(
-                                            imageVector = if (isSelected) {
-                                                it.selectedIcon
-                                            } else it.unselectedIcon,
-                                            contentDescription = it.title
-                                        )
-                                    },
-                                    onClick = {
-                                        rootNavController.navigate(it.title) {
-                                            popUpTo(rootNavController.graph.startDestinationId) {
-                                                saveState = true
-                                            }
-                                            launchSingleTop = true
-                                            restoreState = true
-                                        }
-                                    }
-                                )
-                            }
-                        }
-                    }
-                ) {
-                    NavHost(rootNavController, startDestination = "home") {
-                        composable("users") {
-                            UsersScreen()
-                        }
-                        composable("home") {
-                            HomeScreen()
-                        }
-                        composable("settings") {
-                            SettingsScreen()
-                        }
-                    }
-                }
-            }
         }
     }
 }
