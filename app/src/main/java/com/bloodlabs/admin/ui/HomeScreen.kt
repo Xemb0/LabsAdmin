@@ -13,7 +13,7 @@ fun HomeScreen() {
     NavHost(homeNavController, startDestination = "home1") {
             composable("home1") {
         Box {
-                Text("Home Screen")
+
             }
         }
     }
